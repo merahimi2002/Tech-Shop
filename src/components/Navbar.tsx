@@ -41,7 +41,7 @@ export function Navbar() {
               <Button  className="Shop-cart-list">
                 <CgShoppingCart />
                 <div className="Number Shop-cart-list-number">
-                  1
+                  0
                 </div>
               </Button>
               <Button className="Shop-cart-favorite">
