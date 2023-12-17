@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { Fragment } from "react";
+import { ShoppingCartProvider } from "./context/ShoppingCardContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
@@ -13,18 +14,20 @@ import { Login } from "./pages/Login";
 function App() {
   return (
     <Fragment>
-      <Navbar />
-      <Container fluid className="p-0">
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/Store" element={<Store />}></Route>
-          <Route path="/AboutUs" element={<AboutUs />}></Route>
-          <Route path="/Cart" element={<Cart />}></Route>
-          <Route path="/Sign" element={<Sign />}></Route>
-          <Route path="/Login" element={<Login />}></Route>
-        </Routes>
-      </Container>
-      <Footer />
+      <ShoppingCartProvider>
+        <Navbar />
+        <Container fluid className="p-0">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/Store" element={<Store />}></Route>
+            <Route path="/AboutUs" element={<AboutUs />}></Route>
+            <Route path="/Cart" element={<Cart />}></Route>
+            <Route path="/Sign" element={<Sign />}></Route>
+            <Route path="/Login" element={<Login />}></Route>
+          </Routes>
+        </Container>
+        <Footer />
+      </ShoppingCartProvider>
     </Fragment>
   );
 }

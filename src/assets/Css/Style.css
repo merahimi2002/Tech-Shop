@@ -1,6 +1,8 @@
 :root {
   --first-color: #000066;
   --second-color: #f17b24;
+  --grey: #f6f6f6;
+  --text-gery: rgba(33, 37, 41, 0.75);
 }
 
 body {
@@ -361,11 +363,23 @@ ul {
 
 .Product-Cards {
   margin: 20px 10px;
-  background-color: #f6f6f6 !important;
+  background-color: var(--grey) !important;
   box-shadow: 0 10px 29px 0 rgb(33 43 70 / 10%);
 }
 
+.No-button {
+  background-color: var(--grey) !important;
+  color: var(--first-color) !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
 /* card-body */
+
+.Product-Cards .card-body {
+  padding: 25px;
+}
 
 .Product-Cards .card-body .card-title {
   display: flex;
@@ -389,20 +403,20 @@ ul {
 
 /* button */
 
-.Product-Cards .Product-Cards-button {
+.Product-Cards-button {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   margin: 10px 0;
 }
 
-.Product-Cards .Product-Cards-button button {
+.Product-Cards-button button {
   margin: 0 2px;
 }
 
-.Product-Cards .Product-Cards-button-love button,
-.Product-Cards .Product-Cards-button-info button,
-.Product-Cards .Product-Cards-button-cart button {
+.Product-Cards-button-love button,
+.Product-Cards-button-info button,
+.Product-Cards-button-cart button {
   background-color: white;
   border: none;
   color: var(--second-color);
@@ -416,57 +430,113 @@ ul {
   padding: 7px;
 }
 
-.Product-Cards .Product-Cards-button-love button:hover,
-.Product-Cards .Product-Cards-button-love button:active,
-.Product-Cards .Product-Cards-button-info button:hover,
-.Product-Cards .Product-Cards-button-info button:active,
-.Product-Cards .Product-Cards-button-cart button:hover,
-.Product-Cards .Product-Cards-button-cart button:active {
+.Product-Cards-button-love button:hover,
+.Product-Cards-button-love button:active,
+.Product-Cards-button-info button:hover,
+.Product-Cards-button-info button:active,
+.Product-Cards-button-cart button:hover,
+.Product-Cards-button-cart button:active {
   color: white;
   background-color: var(--second-color);
 }
 
 /* Product-Cards-button-action */
 
-.Product-Cards .Product-Cards-button-action {
+.Product-Cards-button-action {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.Product-Cards .Product-Cards-button-control {
+.Product-Cards-button-control {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.Product-Cards .Product-Cards-button-counter {
+.Product-Cards-button-counter {
   padding: 0 15px;
   font-size: 16px;
   color: var(--first-color);
 }
 
-.Product-Cards .Product-Cards-button-add button {
+.Product-Cards-button-add button {
   color: green;
   font-size: 30px;
 }
 
-.Product-Cards .Product-Cards-button-add button:hover,
-.Product-Cards .Product-Cards-button-add button.active {
+.Product-Cards-button-add button:hover,
+.Product-Cards-button-add button.active {
   background-color: green;
 }
 
-.Product-Cards .Product-Cards-button-remove button {
+.Product-Cards-button-remove button {
   color: red;
   font-size: 30px;
 }
 
-.Product-Cards .Product-Cards-button-remove button:hover,
-.Product-Cards .Product-Cards-button-remove button.active {
+.Product-Cards-button-remove button:hover,
+.Product-Cards-button-remove button.active {
   background-color: red;
 }
 
 /* End Product-Cards*/
+
+/* Start Product-details */
+
+.Product-details .modal-header .modal-title {
+  color: var(--first-color);
+}
+
+.Product-details .modal-header button {
+  background-color: var(--grey);
+  color: white;
+}
+
+.image-box {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--grey);
+  padding: 20px 0;
+}
+
+.image-box img {
+  width: 90px;
+}
+
+/* body */
+
+.Product-details .modal-body h5 {
+  margin-bottom: 20px;
+}
+
+.Product-details .modal-body .summery {
+  color: var(--text-gery);
+}
+
+.Product-details .modal-body .price {
+  color: red;
+  font-weight: 600;
+  text-align: right;
+  font-size: 20px;
+}
+
+.Product-details .Product-Cards-button {
+  justify-content: flex-start;
+}
+
+.Product-details .Product-Cards-button-love button,
+.Product-details .Product-Cards-button-cart button {
+  border: 1px solid var(--grey);
+}
+
+.Product-details .Payment button {
+  padding: 10px 30px;
+  background-color: var(--first-color);
+  margin: 30px 0 10px;
+}
+
+/* End Product-details */
 
 /* Start Shopping-cart */
 
@@ -510,7 +580,7 @@ ul {
 }
 
 .Shopping-cart .Shopping-cart-item:nth-child(even) {
-  background-color: #f6f6f6;
+  background-color: var(--grey);
 }
 
 .Shopping-cart .hstack {
