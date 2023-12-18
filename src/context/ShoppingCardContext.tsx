@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
+import { ShoppingFavouriteCart } from "../components/ShoppingFavoriteCart";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type ShoppingCartProviderProps = {
@@ -11,11 +12,10 @@ type CartItem = {
   quantity: number;
 };
 
-// type FavoriteItem = {
-//   idFavorite: number;
-//   quantityFavorite: number;
-// };
-
+type FavoriteItem = {
+  id: number;
+  quantityFavorite: number;
+};
 
 type ShoppingCartContext = {
   openCart: () => void;
@@ -27,11 +27,14 @@ type ShoppingCartContext = {
   cartQuantity: number;
   cartItems: CartItem[];
 
-  // getItemFavoriteQuantity: (id: number) => number;
-  // AddCartFavoriteQuantity: (id: number) => void;
-  // removeFromFavoriteCart: (id: number) => void;
-  // cartFavoriteQuantity: number;
-  // cartFavoriteItems: FavoriteItem[];
+
+  openCartF: () => void;
+  closeCartF: () => void;
+  getItemFavoriteQuantity: (id: number) => number;
+  AddCartFavoriteQuantity: (id: number) => void;
+  removeFromFavoriteCart: (id: number) => void;
+  cartFavoriteQuantity: number;
+  cartFavoriteItems: FavoriteItem[];
 };
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -42,27 +45,34 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenF, setIsOpenF] = useState(false);
+
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "shopping-cart",
     []
   );
 
-  // const [cartFavoriteItems, setFavoriteCartItems] = useLocalStorage<
-  //   FavoriteItem[]
-  // >("Favorite-cart", []);
+  const [cartFavoriteItems, setFavoriteCartItems] = useState<FavoriteItem[]>(
+    []
+  );
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   );
 
-  // const cartFavoriteQuantity = cartFavoriteItems.reduce(
-  //   (quantityFavorite, item) => item.quantityFavorite + quantityFavorite,
-  //   0
-  // );
+  const cartFavoriteQuantity = cartFavoriteItems.reduce(
+    (quantityFavorite, item) => item.quantityFavorite + quantityFavorite,
+    0
+  );
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+
+
+  const openCartF = () => setIsOpenF(true);
+  const closeCartF = () => setIsOpenF(false);
+
 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
@@ -103,35 +113,34 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     });
   }
 
-  // function getItemFavoriteQuantity(idFavorite: number) {
-  //   return (
-  //     cartFavoriteItems.find((item) => item.idFavorite === idFavorite)
-  //       ?.quantityFavorite || 0
-  //   );
+  function getItemFavoriteQuantity(id: number) {
+    return (
+      cartFavoriteItems.find((item) => item.id === id)?.quantityFavorite || 0
+    );
+  }
 
-  // }
-  // function AddCartFavoriteQuantity(idFavorite: number) {
-  //   setFavoriteCartItems((currItems) => {
-  //     if (currItems.find((item) => item.idFavorite === idFavorite) == null) {
-  //       return [...currItems, { idFavorite, quantityFavorite: 1 }];
-  //     } else {
-  //       return currItems.map((item) => {
-  //         if (item.idFavorite === idFavorite) {
-  //           return { ...item, quantityFavorite: item.quantityFavorite + 1 };
-  //         } else {
-  //           return item;
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
-  // function removeFromFavoriteCart(idFavorite: number) {
-  //   setFavoriteCartItems((currItems) => {
-  //     return currItems.filter((item) => item.idFavorite !== idFavorite);
-  //   });
-  // }
+  function AddCartFavoriteQuantity(id: number) {
+    setFavoriteCartItems((currItems2) => {
+      if (currItems2.find((item) => item.id === id) == null) {
+        return [...currItems2, { id, quantityFavorite: 1 }];
+      } else {
+        return currItems2.map((item) => {
+          if (item.id === id) {
+            return { ...item, quantityFavorite: 1 };
+          } else {
+            return item;
+          }
+        });
+      }
+    });
+  }
 
-  
+  function removeFromFavoriteCart(id: number) {
+    setFavoriteCartItems((currItems2) => {
+      return currItems2.filter((item) => item.id !== id);
+    });
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -144,14 +153,17 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         cartItems,
         cartQuantity,
 
-        // getItemFavoriteQuantity,
-        // AddCartFavoriteQuantity,
-        // removeFromFavoriteCart,
-        // cartFavoriteQuantity,
-        // cartFavoriteItems,
+        openCartF,
+        closeCartF,
+        getItemFavoriteQuantity,
+        AddCartFavoriteQuantity,
+        removeFromFavoriteCart,
+        cartFavoriteQuantity,
+        cartFavoriteItems,
       }}
     >
       {children}
+      <ShoppingFavouriteCart isOpenF={isOpenF} />
       <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   );

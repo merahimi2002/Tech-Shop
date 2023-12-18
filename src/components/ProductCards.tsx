@@ -5,6 +5,7 @@ import { TextSummarizer } from "../utilities/TextSummarizer";
 import { useShoppingCart } from "../context/ShoppingCardContext";
 import { CgShoppingCart } from "react-icons/cg";
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { FaSearchPlus } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import Modal from "react-bootstrap/Modal";
@@ -29,6 +30,8 @@ export function ProductCards({
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
+
+    AddCartFavoriteQuantity,
   } = useShoppingCart();
 
   const quantity = getItemQuantity(id);
@@ -51,13 +54,22 @@ export function ProductCards({
         </Card.Title>
         <div className="Product-Cards-button">
           <div className="Product-Cards-button-love">
-            <Button>
+          {/* {quantity === 0 ? (
+              <Button  onClick={() => increaseCartQuantity(id)}>
+              <FaRegHeart />
+            </Button>
+            ) : (
+              <Button disabled  onClick={() => increaseCartQuantity(id)}>
+              <FaHeart />
+            </Button>
+            )} */}
+            <Button  onClick={() => AddCartFavoriteQuantity(id)}>
               <FaRegHeart />
             </Button>
           </div>
           <div className="Product-Cards-button-cart">
             {quantity === 0 ? (
-              <Button
+              <Button 
                 className="Add-to-cart"
                 onClick={() => increaseCartQuantity(id)}
               >

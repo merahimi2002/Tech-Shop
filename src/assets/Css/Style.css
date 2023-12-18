@@ -375,6 +375,7 @@ ul {
   font-size: 20px !important;
   font-weight: 500 !important;
 }
+
 /* card-body */
 
 .Product-Cards .card-body {
@@ -438,6 +439,13 @@ ul {
 .Product-Cards-button-cart button:active {
   color: white;
   background-color: var(--second-color);
+}
+
+
+.Product-Cards-button-love .btn:disabled {
+  background-color: white;
+  color: #f17b24;
+  opacity: 1;
 }
 
 /* Product-Cards-button-action */

@@ -9,7 +9,7 @@ import { RiLoginBoxLine } from "react-icons/ri";
 import "../assets/Css/Style.css";
 
 export function Navbar() {
-  const { openCart, cartQuantity } = useShoppingCart();
+  const { openCart , openCartF , cartQuantity ,cartFavoriteQuantity } = useShoppingCart();
   return (
     <NavbarBs expand="lg" className="Navbar" sticky="top">
       <Container>
@@ -46,10 +46,10 @@ export function Navbar() {
                   {cartQuantity}
                 </div>
               </Button>
-              <Button onClick={openCart} className="Shop-cart-favorite">
+              <Button onClick={openCartF} className="Shop-cart-favorite">
                 <GiEternalLove />
                 <div className="Number Shop-cart-favorite-number">
-                  {cartQuantity}
+                  {cartFavoriteQuantity}
                 </div>
               </Button>
               <a href="/Login">
