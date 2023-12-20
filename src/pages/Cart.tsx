@@ -1,21 +1,73 @@
 import { Fragment } from "react";
 import { Banner } from "../components/Banner";
-import { Col, Row, Container } from "react-bootstrap";
+import { Col, Row, Container, Button } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCardContext";
-import { CartItem } from "../components/NavbarSide";
+import { formatCurrency } from "../utilities/formatCurrency";
+import { FaRegTrashCan } from "react-icons/fa6";
+import ShoppingProducts from "../data/item.json";
+import Table from "react-bootstrap/Table";
+
+type CartItemPageProps = {
+  id: number;
+  quantity: number;
+};
+
+export function CartItemPage({ id, quantity }: CartItemPageProps) {
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =
+    useShoppingCart();
+  const item = ShoppingProducts.find((i) => i.id === id);
+
+  if (item == null) return null;
+  return (
+    <tr>
+      <td>
+        <img src={item.image} />
+      </td>
+      <td>{item.name}</td>
+      <td>{formatCurrency(item.price)}</td>
+      <td>
+        <div className="Quantity-action">
+          <Button onClick={() => decreaseCartQuantity(item.id)}>-</Button>
+          <p>{quantity}</p>
+          <Button onClick={() => increaseCartQuantity(item.id)}>+</Button>
+        </div>
+      </td>
+      <td>{formatCurrency(item.price * quantity)}</td>
+      <td>
+        <Button className="Trash" onClick={() => removeFromCart(item.id)}>
+          <FaRegTrashCan />
+        </Button>
+      </td>
+    </tr>
+  );
+}
 
 export function Cart() {
   const { cartItems } = useShoppingCart();
   return (
     <Fragment>
       <Banner Url="../../Imgs/Sliders/CartSlider.jpg" Message="Cart" />
-      <Container>
-        <Row lg={3} md={3} xs={2}>
-          {cartItems.map((item) => (
-            <Col key={item.id}>
-              <CartItem  {...item} />
-            </Col>
-          ))}
+      <Container className="Cart-page">
+        <Row xs={1}>
+          <Col>
+            <Table responsive hover striped bordered>
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total Price</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cartItems.map((item) => (
+                  <CartItemPage key={item.id} {...item} />
+                ))}
+              </tbody>
+            </Table>
+          </Col>
         </Row>
       </Container>
     </Fragment>

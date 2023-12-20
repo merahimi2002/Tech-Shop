@@ -609,7 +609,7 @@ ul {
   padding-left: 10px;
 }
 
-.Shopping-cart-item-name span{
+.Shopping-cart-item-name span {
   color: var(--second-color);
 }
 
@@ -752,6 +752,87 @@ ul {
 }
 
 /* End Sign-up */
+
+/* Start Cart Page */
+
+.Cart-page table {
+  text-align: center;
+}
+
+.Cart-page table thead th {
+  background-color: var(--first-color);
+  color: white;
+  line-height: 2.5;
+}
+
+.Cart-page table td {
+  vertical-align: middle;
+}
+
+.Cart-page .table-striped>tbody>tr:nth-of-type(even)>* {
+  --bs-table-bg-type: var(--bs-table-striped-bg);
+}
+
+.Cart-page .table-striped>tbody>tr:nth-of-type(odd)>* {
+  --bs-table-bg-type: white;
+}
+
+.Cart-page .table-hover>tbody>tr:hover>* {
+  --bs-table-bg-state: rgba(0, 0, 0, 0.20);
+}
+
+/* item */
+
+.Cart-page table img {
+  width: 60px;
+}
+
+.Cart-page table button {
+  border: none;
+  transition: 0.4s;
+}
+
+.Cart-page table .Quantity-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.70);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.Cart-page table .Quantity-action p {
+  margin-bottom: 0;
+}
+
+.Cart-page table .Quantity-action button {
+  color: white;
+  width: 30%;
+}
+
+.Cart-page table .Quantity-action button:nth-child(1) {
+  border-radius: 7px 0 0 7px;
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.Cart-page table .Quantity-action button:nth-child(3) {
+  border-radius: 0 7px 7px 0;
+  background-color: rgba(0, 128, 0, 0.8);
+}
+
+.Cart-page table .Trash {
+  background-color: var(--second-color);
+  border: 1px solid var(--second-color);
+}
+
+.Cart-page table .Trash:hover {
+  background-color: white;
+  color: var(--second-color);
+}
+
+/* End Cart Page */
 
 /* Start Footer */
 
