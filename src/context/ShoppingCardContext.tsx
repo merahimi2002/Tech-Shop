@@ -27,7 +27,6 @@ type ShoppingCartContext = {
   cartQuantity: number;
   cartItems: CartItem[];
 
-
   openCartF: () => void;
   closeCartF: () => void;
   getItemFavoriteQuantity: (id: number) => number;
@@ -44,6 +43,7 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenF, setIsOpenF] = useState(false);
 
@@ -52,8 +52,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     []
   );
 
-  const [cartFavoriteItems, setFavoriteCartItems] = useState<FavoriteItem[]>(
-    []
+  const [cartFavoriteItems, setFavoriteCartItems] = useLocalStorage<FavoriteItem[]>(
+    "aa",[]
   );
 
   const cartQuantity = cartItems.reduce(
