@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { ProductCards } from "../components/ProductCards";
+import { ProductCards } from "./ProductCards";
 import ShoppingProducts from "../data/item.json";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -65,4 +65,18 @@ export function ProductCarousel() {
       </Row>
     </Container>
   );
+}
+
+export function SoldOut(id: number) {
+
+  const item = ShoppingProducts.find((i) => i.id === id);
+  if (item == null) return null;
+
+  item.name = "Sold Out";
+  item.price = 0;
+
+}
+
+{
+  SoldOut(4);
 }
