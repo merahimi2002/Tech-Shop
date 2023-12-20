@@ -609,6 +609,10 @@ ul {
   padding-left: 10px;
 }
 
+.Shopping-cart-item-name span{
+  color: var(--second-color);
+}
+
 .Shopping-cart .Shopping-cart-item-price p {
   font-size: 18px;
   margin: 0;
