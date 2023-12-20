@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Banner } from "../components/Banner";
 import { Col, Row, Container } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCardContext";
-import { CartItem } from "../components/ShoppingCartItem";
+import { CartItem } from "../components/NavbarSide";
 
 export function Cart() {
   const { cartItems } = useShoppingCart();

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Container, Row } from "react-bootstrap";
 import { AboutUsWhitoutBanner } from "./AboutUs";
-import { ProductCarousel } from "../components/ProductCarousel";
+import { ProductCarousel } from "../components/ProductCardsList";
 import Carousel from "react-bootstrap/Carousel";
 
 export function Home() {
