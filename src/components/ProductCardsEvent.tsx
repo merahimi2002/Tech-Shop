@@ -68,15 +68,11 @@ export function ProductCarousel() {
 }
 
 export function SoldOut(id: number) {
-
   const item = ShoppingProducts.find((i) => i.id === id);
   if (item == null) return null;
 
-  item.name = "Sold Out";
-  item.price = 0;
-
+  item.name = "Sold-Out";
+  item.id = -1;
 }
 
-{
-  SoldOut(4);
-}
+// SoldOut(2);

@@ -441,7 +441,6 @@ ul {
   background-color: var(--second-color);
 }
 
-
 .Product-Cards-button-love .btn:disabled {
   background-color: white;
   color: #f17b24;
@@ -769,16 +768,16 @@ ul {
   vertical-align: middle;
 }
 
-.Cart-page .table-striped>tbody>tr:nth-of-type(even)>* {
+.Cart-page .table-striped > tbody > tr:nth-of-type(even) > * {
   --bs-table-bg-type: var(--bs-table-striped-bg);
 }
 
-.Cart-page .table-striped>tbody>tr:nth-of-type(odd)>* {
+.Cart-page .table-striped > tbody > tr:nth-of-type(odd) > * {
   --bs-table-bg-type: white;
 }
 
-.Cart-page .table-hover>tbody>tr:hover>* {
-  --bs-table-bg-state: rgba(0, 0, 0, 0.20);
+.Cart-page .table-hover > tbody > tr:hover > * {
+  --bs-table-bg-state: rgba(0, 0, 0, 0.2);
 }
 
 /* item */
@@ -798,7 +797,7 @@ ul {
   justify-content: space-between;
   width: 80%;
   margin: auto;
-  border: 1px solid rgba(0, 0, 0, 0.70);
+  border: 1px solid rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   background-color: white;
 }
@@ -833,6 +832,34 @@ ul {
 }
 
 /* End Cart Page */
+
+/* Start Sold Out */
+
+#Sold-Out {
+  position: relative;
+}
+
+#Sold-Out::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  opacity: 1;
+  background-image: url(../../../public/Imgs/SoldOut.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#Sold-Out .card-body,
+#Sold-Out .card-img-top{
+  opacity: 0.5;
+}
+
+/* End Sold Out */
 
 /* Start Footer */
 

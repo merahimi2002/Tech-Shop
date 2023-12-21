@@ -41,7 +41,7 @@ export function ProductCards({
 
   const [lgShow, setLgShow] = useState(false);
   return (
-    <Card className="Product-Cards">
+    <Card id={name} className="Product-Cards">
       <Card.Img variant="top" src={image}></Card.Img>
       <Card.Body>
         <Card.Title>
@@ -185,6 +185,3 @@ export function ProductCards({
     </Card>
   );
 }
-
-
-
