@@ -1,8 +1,22 @@
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { ProductCards } from "./ProductCards";
-import JsonItem from "../data/item.json";
+import ShoppingProducts from "../data/item.json";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
+export function ProductCardsList() {
+  return (
+    <Container>
+      <Row lg={4} md={3} xs={2} className="g-3">
+        {ShoppingProducts.map((item) => (
+          <Col key={item.id}>
+            <ProductCards {...item} />
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  );
+}
 
 export function ProductCarousel() {
   const responsive = {
@@ -42,7 +56,7 @@ export function ProductCarousel() {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          {JsonItem.map((item) => (
+          {ShoppingProducts.map((item) => (
             <Col key={item.id}>
               <ProductCards {...item} />
             </Col>
@@ -51,4 +65,18 @@ export function ProductCarousel() {
       </Row>
     </Container>
   );
+}
+
+export function SoldOut(id: number) {
+
+  const item = ShoppingProducts.find((i) => i.id === id);
+  if (item == null) return null;
+
+  item.name = "Sold Out";
+  item.price = 0;
+
+}
+
+{
+  SoldOut(4);
 }

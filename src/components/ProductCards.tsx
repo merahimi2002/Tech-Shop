@@ -5,6 +5,7 @@ import { TextSummarizer } from "../utilities/TextSummarizer";
 import { useShoppingCart } from "../context/ShoppingCardContext";
 import { CgShoppingCart } from "react-icons/cg";
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { FaSearchPlus } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import Modal from "react-bootstrap/Modal";
@@ -29,11 +30,16 @@ export function ProductCards({
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
+
+    getItemFavoriteQuantity,
+    AddCartFavoriteQuantity,
+    removeFromFavoriteCart,
   } = useShoppingCart();
 
   const quantity = getItemQuantity(id);
-  const [lgShow, setLgShow] = useState(false);
+  const FavoriteQuantity = getItemFavoriteQuantity(id);
 
+  const [lgShow, setLgShow] = useState(false);
   return (
     <Card className="Product-Cards">
       <Card.Img variant="top" src={image}></Card.Img>
@@ -51,9 +57,15 @@ export function ProductCards({
         </Card.Title>
         <div className="Product-Cards-button">
           <div className="Product-Cards-button-love">
-            <Button>
-              <FaRegHeart />
-            </Button>
+            {FavoriteQuantity === 0 ? (
+              <Button onClick={() => AddCartFavoriteQuantity(id)}>
+                <FaRegHeart />
+              </Button>
+            ) : (
+              <Button onClick={() => removeFromFavoriteCart(id)}>
+                <FaHeart />
+              </Button>
+            )}
           </div>
           <div className="Product-Cards-button-cart">
             {quantity === 0 ? (
@@ -114,9 +126,15 @@ export function ProductCards({
                 <p className="price">{formatCurrency(price)}</p>
                 <div className="Product-Cards-button">
                   <div className="Product-Cards-button-love">
-                    <Button>
-                      <FaRegHeart />
-                    </Button>
+                    {FavoriteQuantity === 0 ? (
+                      <Button onClick={() => AddCartFavoriteQuantity(id)}>
+                        <FaRegHeart />
+                      </Button>
+                    ) : (
+                      <Button onClick={() => removeFromFavoriteCart(id)}>
+                        <FaHeart />
+                      </Button>
+                    )}
                   </div>
                   <div className="Product-Cards-button-cart">
                     {quantity === 0 ? (
@@ -167,3 +185,6 @@ export function ProductCards({
     </Card>
   );
 }
+
+
+
