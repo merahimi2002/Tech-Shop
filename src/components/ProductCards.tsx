@@ -47,7 +47,7 @@ export function ProductCards({
         <Card.Title>
           <span className="name">
             <Button onClick={() => setLgShow(true)} className="No-button">
-              {name}
+              {name} 
             </Button>
           </span>
           <span className="summery text-muted">

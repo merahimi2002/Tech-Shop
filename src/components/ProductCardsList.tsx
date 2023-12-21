@@ -4,6 +4,8 @@ import ShoppingProducts from "../data/item.json";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+
+
 export function ProductCardsList() {
   return (
     <Container>
@@ -67,12 +69,5 @@ export function ProductCarousel() {
   );
 }
 
-export function SoldOut(id: number) {
-  const item = ShoppingProducts.find((i) => i.id === id);
-  if (item == null) return null;
 
-  item.name = "Sold-Out";
-  item.id = -1;
-}
 
-// SoldOut(2);

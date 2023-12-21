@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Banner } from "../components/Banner";
-import { ProductCardsList } from "../components/ProductCardsEvent";
+import { ProductCardsList } from "../components/ProductCardsList";
 
 export function Store() {
   return (
