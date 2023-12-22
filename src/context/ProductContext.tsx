@@ -14,3 +14,4 @@ export function Discount(id: number) {
   item.price = DiscountCounter(item.price, 50);
   return item.name;
 }
+
