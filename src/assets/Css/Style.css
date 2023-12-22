@@ -833,7 +833,7 @@ ul {
 
 /* End Cart Page */
 
-/* Start Sold Out */
+/* Start Sold Out & Discount */
 
 .Sold-Out {
   position: relative;
@@ -855,11 +855,30 @@ ul {
 }
 
 .Sold-Out .card-body,
-.Sold-Out .card-img-top{
+.Sold-Out .card-img-top {
   opacity: 0.5;
 }
 
-/* End Sold Out */
+.Discount .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.Discount .card::before {
+  content: "Discount";
+  position: absolute;
+  top: 15px;
+  left: -60px;
+  z-index: 99;
+  background-color: #c5212b;
+  color: white;
+  padding: 10px 60px ;
+  transform: rotate(-45deg);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* End Sold Out & Discount */
 
 /* Start Footer */
 

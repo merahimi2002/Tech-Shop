@@ -7,11 +7,11 @@ export function SoldOut(id: number) {
   return item.name;
 }
 
-export function Discount(id: number) {
+export function Discount(id: number, Percent: number) {
   const item = ShoppingProducts.find((i) => i.id === id);
   if (item == null) return null;
 
-  item.price = DiscountCounter(item.price, 50);
+  item.price = DiscountCounter(item.price, Percent);
+  console.log(item.price)
   return item.name;
 }
-

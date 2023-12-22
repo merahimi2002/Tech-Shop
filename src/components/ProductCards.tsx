@@ -49,12 +49,13 @@ export function ProductCards({
 
   let ClassName = name;
   const soldoutID = 4;
-  const discount = Discount(3);
+  const discountPercent = 50;
+  const discount = Discount(2, discountPercent);
   const soldout = SoldOut(soldoutID);
+  console.log (discount)
 
   if (ClassName === soldout) {
     ClassName = "Sold-Out";
-    console.log(quantity);
     if (quantity > 0) {
       removeFromCart(soldoutID);
     }
@@ -65,6 +66,7 @@ export function ProductCards({
 
   if (ClassName === discount) {
     ClassName = "Discount";
+    
   }
 
   return (
