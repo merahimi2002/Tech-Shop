@@ -835,11 +835,11 @@ ul {
 
 /* Start Sold Out */
 
-#Sold-Out {
+.Sold-Out {
   position: relative;
 }
 
-#Sold-Out::before {
+.Sold-Out::before {
   content: "";
   position: absolute;
   top: 0;
@@ -854,8 +854,8 @@ ul {
   background-size: contain;
 }
 
-#Sold-Out .card-body,
-#Sold-Out .card-img-top{
+.Sold-Out .card-body,
+.Sold-Out .card-img-top{
   opacity: 0.5;
 }
 
