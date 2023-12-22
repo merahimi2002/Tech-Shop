@@ -39,8 +39,8 @@ export function ProductCards({
     removeFromFavoriteCart,
   } = useShoppingCart();
 
-  let quantity = getItemQuantity(id);
-  let FavoriteQuantity = getItemFavoriteQuantity(id);
+  const quantity = getItemQuantity(id);
+  const FavoriteQuantity = getItemFavoriteQuantity(id);
 
   // modale
   const [lgShow, setLgShow] = useState(false);
@@ -48,14 +48,21 @@ export function ProductCards({
   // Discount & SoldOut
 
   let ClassName = name;
-  const discount = Discount(4);
-  const soldout = SoldOut(4);
+  const soldoutID = 4;
+  const discount = Discount(3);
+  const soldout = SoldOut(soldoutID);
 
   if (ClassName === soldout) {
     ClassName = "Sold-Out";
-    quantity = 0;
-    FavoriteQuantity = 0;
+    console.log(quantity);
+    if (quantity > 0) {
+      removeFromCart(soldoutID);
+    }
+    if (FavoriteQuantity > 0) {
+      removeFromFavoriteCart(soldoutID);
+    }
   }
+
   if (ClassName === discount) {
     ClassName = "Discount";
   }
