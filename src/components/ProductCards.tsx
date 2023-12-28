@@ -28,14 +28,13 @@ export function ProductCards({
   description,
   isAvailable,
 }: ProductCardsProps) {
+  // ShoppingCardContext
   const {
-    // CartQuantity
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
 
-    // FavoriteQuantity
     getItemFavoriteQuantity,
     AddCartFavoriteQuantity,
     removeFromFavoriteCart,
@@ -47,18 +46,22 @@ export function ProductCards({
   // modale
   const [lgShow, setLgShow] = useState(false);
 
-  // Discount & SoldOut
-
+  //ClassName
   let ClassName = name;
+
+  // Discount
+  const discountPercent = 50;
+  const discount = Discount(5, discountPercent);
+  if (ClassName === discount) {
+    ClassName = "Discount";
+  }
+
+  // Unavailable or SoldOut
   let soldoutID = -1;
   if (isAvailable === false) {
     soldoutID = id;
   }
-  const discountPercent = 50;
-  const discount = Discount(5, discountPercent);
   const soldout = SoldOut(soldoutID);
-  // console.log (discount)
-
   if (ClassName === soldout) {
     ClassName = "Sold-Out";
     if (quantity > 0) {
@@ -69,9 +72,7 @@ export function ProductCards({
     }
   }
 
-  if (ClassName === discount) {
-    ClassName = "Discount";
-  }
+  //Function
 
   return (
     <div className={ClassName}>
