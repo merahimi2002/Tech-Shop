@@ -16,7 +16,8 @@ type ProductCardsProps = {
   name: string;
   price: number;
   image: string;
-  summery: string;
+  description: string;
+  isAvailable: boolean;
 };
 
 export function ProductCards({
@@ -24,7 +25,8 @@ export function ProductCards({
   name,
   price,
   image,
-  summery,
+  description,
+  isAvailable,
 }: ProductCardsProps) {
   const {
     // CartQuantity
@@ -50,10 +52,11 @@ export function ProductCards({
   let ClassName = name;
   const soldoutID = 4;
   const discountPercent = 50;
-  const discount = Discount(2, discountPercent);
+  const discount = Discount(5, discountPercent);
   const soldout = SoldOut(soldoutID);
-  console.log (discount)
+  // console.log (discount)
 
+ 
   if (ClassName === soldout) {
     ClassName = "Sold-Out";
     if (quantity > 0) {
@@ -66,7 +69,6 @@ export function ProductCards({
 
   if (ClassName === discount) {
     ClassName = "Discount";
-    
   }
 
   return (
@@ -80,8 +82,8 @@ export function ProductCards({
                 {name}
               </Button>
             </span>
-            <span className="summery text-muted">
-              {TextSummarizer(summery, 40)}
+            <span className="description text-muted">
+              {TextSummarizer(description, 40)}
             </span>
             <span className="price "> {formatCurrency(price)}</span>
           </Card.Title>
@@ -156,7 +158,7 @@ export function ProductCards({
                 </Col>
                 <Col>
                   <h5>Description</h5>
-                  <p className="summery">{summery}</p>
+                  <p className="description">{description}</p>
                   <p className="price">{formatCurrency(price)}</p>
                   <div className="Product-Cards-button">
                     <div className="Product-Cards-button-love">

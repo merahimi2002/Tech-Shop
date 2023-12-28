@@ -1,31 +1,58 @@
-
 [
     {
-        "id" :1,
-        "name":"Iphone 13 pro max",
-        "price":1400.99,
-        "image":"../../Imgs/Shop-card/iphone-13-pro-max.webp",
-        "summery":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ex quia molestias dignissimos ipsum, ut officia, molestiae at minus quis modi. Placeat atque excepturi, esse alias provident autem quam quia minima vel. Sunt perspiciatis debitis ad nihil, obcaecati culpa! Maxime, nesciunt voluptate"
+        "id": 1,
+        "name": "Iphone 13 pro max",
+        "ُslug": "Iphone 13 pro max",
+        "image": "../../Imgs/Shop-card/iphone-13-pro-max.webp",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ex quia molestias dignissimos ipsum, ut officia, molestiae at minus quis modi. Placeat atque excepturi, esse alias provident autem quam quia minima vel. Sunt perspiciatis debitis ad nihil, obcaecati culpa! Maxime, nesciunt voluptate",
+        "price": 1400.99,
+        "modals": "Apple",
+        "isAvailable": true,
+        "star": null,
+        "created": "",
+        "updated": "",
+        "category": "phone"
     },
     {
-        "id" :2,
-        "name":"AppleWatch",
-        "price":1000.99,
-        "image":"../../Imgs/Shop-card/AppleWatch.webp",
-        "summery":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ex quia molestias dignissimos ipsum, ut officia, molestiae at minus quis modi. Placeat atque excepturi, esse alias provident autem quam quia minima vel. Sunt perspiciatis debitis ad nihil, obcaecati culpa! Maxime, nesciunt voluptate"
+        "id": 2,
+        "name": "AppleWatch",
+        "ُslug": "AppleWatch",
+        "image": "../../Imgs/Shop-card/AppleWatch.webp",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ex quia molestias dignissimos ipsum, ut officia, molestiae at minus quis modi. Placeat atque excepturi, esse alias provident autem quam quia minima vel. Sunt perspiciatis debitis ad nihil, obcaecati culpa! Maxime, nesciunt voluptate",
+        "price": 1000.99,
+        "modals": "Apple",
+        "isAvailable": true,
+        "star": null,
+        "created": "",
+        "updated": "",
+        "category": "watch"
     },
     {
-        "id" :3,
-        "name":"Airpods pro 2",
-        "price":240.99,
-        "image":"../../Imgs/Shop-card/airpods-pro-2.webp",
-        "summery":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ex quia molestias dignissimos ipsum, ut officia, molestiae at minus quis modi. Placeat atque excepturi, esse alias provident autem quam quia minima vel. Sunt perspiciatis debitis ad nihil, obcaecati culpa! Maxime, nesciunt voluptate"
+        "id": 3,
+        "name": "Airpods pro 2",
+        "ُslug": "Airpods pro 2",
+        "image": "../../Imgs/Shop-card/airpods-pro-2.webp",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ex quia molestias dignissimos ipsum, ut officia, molestiae at minus quis modi. Placeat atque excepturi, esse alias provident autem quam quia minima vel. Sunt perspiciatis debitis ad nihil, obcaecati culpa! Maxime, nesciunt voluptate",
+        "price": 240.99,
+        "modals": "Apple",
+        "isAvailable": true,
+        "star": null,
+        "created": "",
+        "updated": "",
+        "category": "airbods"
     },
     {
-        "id" :4,
-        "name":"Iphone 12 pro",
-        "price":1300.99,
-        "image":"../../Imgs/Shop-card/iphone-12-pro.webp",
-        "summery":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ex quia molestias dignissimos ipsum, ut officia, molestiae at minus quis modi. Placeat atque excepturi, esse alias provident autem quam quia minima vel. Sunt perspiciatis debitis ad nihil, obcaecati culpa! Maxime, nesciunt voluptate"
+        "id": 4,
+        "name": "Iphone 12 pro",
+        "ُslug": "Iphone 12 pro",
+        "image": "../../Imgs/Shop-card/iphone-12-pro.webp",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ex quia molestias dignissimos ipsum, ut officia, molestiae at minus quis modi. Placeat atque excepturi, esse alias provident autem quam quia minima vel. Sunt perspiciatis debitis ad nihil, obcaecati culpa! Maxime, nesciunt voluptate",
+        "price": 1300.99,
+        "modals": "Apple",
+        "isAvailable": true,
+        "star": null,
+        "created": "",
+        "updated": "",
+        "category": "phone"
     }
 ]

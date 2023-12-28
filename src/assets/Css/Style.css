@@ -392,7 +392,7 @@ ul {
   color: var(--first-color);
 }
 
-.Product-Cards .card-body .summery {
+.Product-Cards .card-body .description {
   font-size: 14px;
   margin: 15px 0;
 }
@@ -517,7 +517,7 @@ ul {
   margin-bottom: 20px;
 }
 
-.Product-details .modal-body .summery {
+.Product-details .modal-body .description {
   color: var(--text-gery);
 }
 
