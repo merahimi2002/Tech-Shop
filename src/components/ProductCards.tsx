@@ -50,13 +50,15 @@ export function ProductCards({
   // Discount & SoldOut
 
   let ClassName = name;
-  const soldoutID = 4;
+  let soldoutID = -1;
+  if (isAvailable === false) {
+    soldoutID = id;
+  }
   const discountPercent = 50;
   const discount = Discount(5, discountPercent);
   const soldout = SoldOut(soldoutID);
   // console.log (discount)
 
- 
   if (ClassName === soldout) {
     ClassName = "Sold-Out";
     if (quantity > 0) {
