@@ -51,7 +51,7 @@ export function ProductCards({
 
   // Discount
   const discountPercent = 50;
-  const discount = Discount(5, discountPercent);
+  const discount = Discount(-1, discountPercent);
   if (ClassName === discount) {
     ClassName = "Discount";
   }

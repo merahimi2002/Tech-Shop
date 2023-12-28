@@ -9,7 +9,7 @@ import "react-multi-carousel/lib/styles.css";
 export function ProductCardsList() {
   return (
     <Container>
-      <Row lg={4} md={3} xs={2} className="g-3">
+      <Row lg={4} md={3} xs={2} className="g-3 justify-content-center">
         {ShoppingProducts.map((item) => (
           <Col key={item.id}>
             <ProductCards {...item} />
