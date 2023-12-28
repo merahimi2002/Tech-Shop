@@ -18,6 +18,11 @@ export function CartItemPage({ id, quantity }: CartItemPageProps) {
   const item = ShoppingProducts.find((i) => i.id === id);
 
   if (item == null) return null;
+  // NullProductCheck
+  
+  if (item.image === null || item.image === "") {
+    item.image = "../../Imgs/Shop-card/Noimage.png";
+  }
   return (
     <tr>
       <td>

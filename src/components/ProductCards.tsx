@@ -46,6 +46,13 @@ export function ProductCards({
   // modale
   const [lgShow, setLgShow] = useState(false);
 
+  // NullProductCheck
+  
+  if (image === null || image === "") {
+    image = "../../Imgs/Shop-card/Noimage.png";
+  }
+  
+
   //ClassName
   let ClassName = name;
 

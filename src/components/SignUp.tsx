@@ -72,7 +72,7 @@ export function SignUp() {
     console.log("Done", data);
     return await axios({
       method: "POST",
-      url: "https://webeng.liara.run/api/v1/auth/register",
+      url: "",
       headers: {
         "Content-Type": "application/json",
       },
