@@ -11,6 +11,9 @@ import { Cart } from "./pages/Cart";
 import { Sign } from "./pages/Sign";
 import { Login } from "./pages/Login";
 
+import { ProductCards } from "./components/ProductCards";
+import ProductsJson from "./data/Product.json";
+
 function App() {
   return (
     <Fragment>
@@ -24,6 +27,12 @@ function App() {
             <Route path="/Cart" element={<Cart />}></Route>
             <Route path="/Sign" element={<Sign />}></Route>
             <Route path="/Login" element={<Login />}></Route>
+            {ProductsJson.result.map((item) => (
+              <Route key={item.id}
+                path={item.slug}
+                element={<ProductCards {...item} />}
+              ></Route>
+            ))}
           </Routes>
         </Container>
         <Footer />
@@ -31,6 +40,5 @@ function App() {
     </Fragment>
   );
 }
-
 
 export default App;
