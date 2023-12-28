@@ -4,6 +4,8 @@ import { AboutUsWhitoutBanner } from "./AboutUs";
 import { ProductCarousel } from "../components/ProductCardsList";
 import Carousel from "react-bootstrap/Carousel";
 
+import { API } from "../data/API";
+
 export function Home() {
   return (
     <Fragment>
@@ -43,6 +45,7 @@ export function Home() {
           <ProductCarousel />
         </Row>
       </Container>
+      {/* <API /> */}
     </Fragment>
   );
 }
