@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { ZodType, z } from "zod";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MdPerson } from "react-icons/md";
 import { FaUserFriends } from "react-icons/fa";
@@ -8,6 +9,7 @@ import { FaPhone } from "react-icons/fa6";
 import { BsFillEnvelopeAtFill } from "react-icons/bs";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import { RiLock2Fill } from "react-icons/ri";
+import axios from "axios";
 
 type SignUpProps = {
   Name: string;
@@ -40,9 +42,7 @@ export function SignUp() {
           message: "Phone number contain only digits",
         }),
       email: z.string().email(),
-      Age: z
-        .string(),
-        
+      Age: z.string(),
       password: z
         .string()
         .min(8, { message: "Password must be at least 8 characters" })
@@ -66,8 +66,20 @@ export function SignUp() {
     resolver: zodResolver(Schema),
   });
 
-  const submitData = (data: SignUpProps) => {
+  const [error, setError] = useState("");
+
+  const submitData = async (data: SignUpProps) => {
     console.log("Done", data);
+    return await axios({
+      method: "POST",
+      url: "https://webeng.liara.run/api/v1/auth/register",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    }).catch((err) => {
+      setError(err.message);
+    });
   };
 
   return (
@@ -162,6 +174,7 @@ export function SignUp() {
             {errors.confirmPassword && (
               <span>{errors.confirmPassword.message}</span>
             )}
+            {error && <span>{error}</span>}
             <button className="btn" type="submit">
               Sign Up
             </button>

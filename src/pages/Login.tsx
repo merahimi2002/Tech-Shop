@@ -3,10 +3,12 @@ import { Fragment } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { ZodType, z } from "zod";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoPerson } from "react-icons/io5";
 import { RiLock2Fill } from "react-icons/ri";
+import axios from "axios";
 
 type LoginProps = {
   UserName: string;
@@ -35,9 +37,22 @@ export function Login() {
     resolver: zodResolver(Schema),
   });
 
-  const submitData = (data: LoginProps) => {
+  const [error, setError] = useState("");
+
+  const submitData = async (data: LoginProps) => {
     console.log("Done", data);
+    return await axios({
+      method: "POST",
+      url: "https://webeng.liara.run/api/v1/auth/register",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    }).catch((err) => {
+      setError(err.message);
+    });
   };
+
   return (
     <Fragment>
       <Banner Url="../../Imgs/Sliders/LoginBanner.jpg" Message="Login" />
@@ -94,6 +109,7 @@ export function Login() {
               <button className="btn" type="submit">
                 Login
               </button>
+              {error && <span>{error}</span>}
               <a className="account" href="/Sign">
                 Don't have an account yet ? Sign Up
               </a>
