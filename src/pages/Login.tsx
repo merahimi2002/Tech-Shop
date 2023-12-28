@@ -39,7 +39,7 @@ export function Login() {
 
   const [error, setError] = useState("");
 
-  const submitData = async (data: LoginProps) => {
+  const submitDataLogin = async (data: LoginProps) => {
     console.log("Done", data);
     return await axios({
       method: "POST",
@@ -64,7 +64,7 @@ export function Login() {
             </div>
           </Col>
           <Col md={5} sm={12} className="p-0">
-            <form className="Sign-up Login" onSubmit={handleSubmit(submitData)}>
+            <form className="Sign-up Login" onSubmit={handleSubmit(submitDataLogin)}>
               <div className="Login-icon">
                 <BsPersonCircle />
               </div>
@@ -106,10 +106,10 @@ export function Login() {
               <a className="Forgat-password" href="#">
                 Forgot Password ?
               </a>
+              {error && <span>{error}</span>}
               <button className="btn" type="submit">
                 Login
               </button>
-              {error && <span>{error}</span>}
               <a className="account" href="/Sign">
                 Don't have an account yet ? Sign Up
               </a>
