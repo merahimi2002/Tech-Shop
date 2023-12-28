@@ -4,7 +4,7 @@ import { Col, Row, Container, Button } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCardContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { FaRegTrashCan } from "react-icons/fa6";
-import ShoppingProducts from "../data/item.json";
+import ProductsJson from "../data/Product.json";
 import Table from "react-bootstrap/Table";
 
 type CartItemPageProps = {
@@ -15,7 +15,7 @@ type CartItemPageProps = {
 export function CartItemPage({ id, quantity }: CartItemPageProps) {
   const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =
     useShoppingCart();
-  const item = ShoppingProducts.find((i) => i.id === id);
+  const item = ProductsJson.result.find((i) => i.id === id);
 
   if (item == null) return null;
   // NullProductCheck

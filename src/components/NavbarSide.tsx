@@ -1,7 +1,7 @@
 import { Offcanvas, Container, Row, Col, Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCardContext";
 import { formatCurrency } from "../utilities/formatCurrency";
-import ShoppingProducts from "../data/item.json";
+import ProductsJson from "../data/Product.json";
 
 type CartItemProps = {
   id: number;
@@ -23,7 +23,7 @@ type ShoppingFavouriteCartProps = {
 
 export function CartItem({ id, quantity }: CartItemProps) {
   const { removeFromCart } = useShoppingCart();
-  const item = ShoppingProducts.find((i) => i.id === id);
+  const item = ProductsJson.result.find((i) => i.id === id);
   if (item == null) return null;
 
   return (
@@ -79,7 +79,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
               Total :{" "}
               {formatCurrency(
                 cartItems.reduce((total, cartItem) => {
-                  const item = ShoppingProducts.find(
+                  const item = ProductsJson.result.find(
                     (i) => i.id === cartItem.id
                   );
                   return total + (item?.price || 0) * cartItem.quantity;
@@ -96,7 +96,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
 
 export function CartFavoriteItem({ id, quantityFavorite }: FavoriteItemProps) {
   const { removeFromFavoriteCart } = useShoppingCart()
-  const item = ShoppingProducts.find(i => i.id === id)
+  const item = ProductsJson.result.find(i => i.id === id)
   if (item == null) return null
 
   return (

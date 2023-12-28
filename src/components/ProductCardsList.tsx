@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { ProductCards } from "./ProductCards";
-import ShoppingProducts from "../data/item.json";
+import ProductsJson from "../data/Product.json";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -10,7 +10,7 @@ export function ProductCardsList() {
   return (
     <Container>
       <Row lg={4} md={3} xs={2} className="g-3 justify-content-center">
-        {ShoppingProducts.map((item) => (
+        {ProductsJson.result.map((item) => (
           <Col key={item.id}>
             <ProductCards {...item} />
           </Col>
@@ -58,7 +58,7 @@ export function ProductCarousel() {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          {ShoppingProducts.map((item) => (
+          {ProductsJson.result.map((item) => (
             <Col key={item.id}>
               <ProductCards {...item} />
             </Col>
