@@ -1,10 +1,11 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { useState } from "react";
 import { ProductCards } from "./ProductCards";
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import ProductsJson from "../data/Product.json";
 import Carousel from "react-multi-carousel";
+import ReactPaginate from "react-paginate";
 import "react-multi-carousel/lib/styles.css";
-
-
 
 export function ProductCardsList() {
   return (
@@ -69,5 +70,42 @@ export function ProductCarousel() {
   );
 }
 
+export function ProductPaging() {
+  const users = ProductsJson.result;
+  const [pageNumber, setPageNumber] = useState(0);
+  const usersPerPage = 3;
+  const pagesVisited = pageNumber * usersPerPage;
+  const displayUsers = users
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((item) => {
+      return (
+        <Col key={item.id}>
+          <ProductCards {...item} />
+        </Col>
+      );
+    });
 
+  const pageCount = Math.ceil(users.length / usersPerPage);
 
+  const changePage = ({ selected }: any) => {
+    setPageNumber(selected);
+  };
+
+  return (
+    <div className="Paging">
+      <Container>
+        <Row lg={4} md={3} xs={2} className="g-3 justify-content-center">
+          {displayUsers}
+        </Row>
+      </Container>
+      <ReactPaginate
+        previousLabel={<FaChevronLeft />}
+        nextLabel={<FaChevronRight />}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"pagination-nav"}
+        disabledClassName={"Disabled"}
+      />
+    </div>
+  );
+}

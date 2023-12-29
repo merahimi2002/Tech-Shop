@@ -872,13 +872,60 @@ ul {
   z-index: 99;
   background-color: #c5212b;
   color: white;
-  padding: 10px 60px ;
+  padding: 10px 60px;
   transform: rotate(-45deg);
   font-size: 20px;
   font-weight: 600;
 }
 
 /* End Sold Out & Discount */
+
+/* Start Paging */
+
+.Paging .pagination-nav {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.Paging .pagination-nav li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  margin: 5px;
+  background-color: #0000cd;
+  border: 1px solid #0000cd;
+  color: white !important;
+  transition: 0.4s;
+}
+
+.Paging .pagination-nav li a:hover {
+  background-color: white;
+  color: #0000cd !important;
+}
+
+.Paging .pagination-nav li.next a:hover ,
+.Paging .pagination-nav li.previous a:hover {
+  background-color: #0000cd;
+  color: white !important;
+}
+
+.Paging .pagination-nav li.next svg,
+.Paging .pagination-nav li.previous svg {
+  color: var(--second-color);
+}
+
+.Paging .pagination-nav .previous.Disabled,
+.Paging .pagination-nav .next.Disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* End Paging */
 
 /* Start Footer */
 
