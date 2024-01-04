@@ -20,6 +20,17 @@ type ProductCardsProps = {
   isAvailable: boolean;
 };
 
+type ProductPageProps = {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+  isAvailable: boolean;
+  modals: string;
+  category: string;
+};
+
 export function ProductCards({
   id,
   name,
@@ -47,11 +58,10 @@ export function ProductCards({
   const [lgShow, setLgShow] = useState(false);
 
   // NullProductCheck
-  
+
   if (image === null || image === "") {
     image = "../../Imgs/Shop-card/Noimage.png";
   }
-  
 
   //ClassName
   let ClassName = name;
@@ -220,8 +230,8 @@ export function ProductCards({
                       )}
                     </div>
                   </div>
-                  <a className="Payment" href="/Cart">
-                    <Button>Payment</Button>
+                  <a className="Payment" href={name} target="_blank">
+                    <Button>Details</Button>
                   </a>
                 </Col>
               </Row>
@@ -229,6 +239,154 @@ export function ProductCards({
           </Modal.Body>
         </Modal>
       </Card>
+    </div>
+  );
+}
+export function ProductPage({
+  id,
+  name,
+  price,
+  image,
+  description,
+  isAvailable,
+  modals,
+  category,
+}: ProductPageProps) {
+  // ShoppingCardContext
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+
+    getItemFavoriteQuantity,
+    AddCartFavoriteQuantity,
+    removeFromFavoriteCart,
+  } = useShoppingCart();
+
+  const quantity = getItemQuantity(id);
+  const FavoriteQuantity = getItemFavoriteQuantity(id);
+
+  // NullProductCheck
+
+  if (image === null || image === "") {
+    image = "../../Imgs/Shop-card/Noimage.png";
+  }
+
+  //ClassName
+  let ClassName = name;
+
+  // Discount
+  const discountPercent = 50;
+  const discount = Discount(-1, discountPercent);
+  if (ClassName === discount) {
+    ClassName = "Discount";
+  }
+
+  // Unavailable or SoldOut
+  let soldoutID = -1;
+  if (isAvailable === false) {
+    soldoutID = id;
+  }
+  const soldout = SoldOut(soldoutID);
+  if (ClassName === soldout) {
+    ClassName = "Sold-Out";
+    if (quantity > 0) {
+      removeFromCart(soldoutID);
+    }
+    if (FavoriteQuantity > 0) {
+      removeFromFavoriteCart(soldoutID);
+    }
+  }
+
+  //Function
+
+  return (
+    <div className={ClassName}>
+      <div className="Product-Page">
+        <Container>
+          <Row>
+            <Col md={5} sm={12}>
+              <div className="Product-Page-img">
+                <img src={image} alt="pic" />
+                <div className="image-box">
+                  <img src={image} alt="pic" />
+                  <img src={image} alt="pic" />
+                  <img src={image} alt="pic" />
+                </div>
+              </div>
+            </Col>
+            <Col md={7} sm={12}>
+              <div className="Product-Page-box">
+                <p>
+                  {modals} / {category}
+                </p>
+                <div className="Titr-bar text-left">
+                  <h2>{name}</h2>
+                  <div className="bar-main">
+                    <div className="bar bar-big"></div>
+                  </div>
+                </div>
+                <p>{description}</p>
+                <h5 className="price">{formatCurrency(price)}</h5>
+                <div className="Product-Cards-button">
+                  <div className="Product-Cards-button-love">
+                    {FavoriteQuantity === 0 ? (
+                      <Button onClick={() => AddCartFavoriteQuantity(id)}>
+                        <FaRegHeart />
+                      </Button>
+                    ) : (
+                      <Button onClick={() => removeFromFavoriteCart(id)}>
+                        <FaHeart />
+                      </Button>
+                    )}
+                  </div>
+                  <div className="Product-Cards-button-cart">
+                    {quantity === 0 ? (
+                      <Button
+                        className="Add-to-cart"
+                        onClick={() => increaseCartQuantity(id)}
+                      >
+                        {" "}
+                        <CgShoppingCart />
+                      </Button>
+                    ) : (
+                      <div className="Product-Cards-button-action">
+                        <div className="Product-Cards-button-control">
+                          <div className="Product-Cards-button-remove">
+                            <Button onClick={() => decreaseCartQuantity(id)}>
+                              -
+                            </Button>
+                          </div>
+                          <div className="Product-Cards-button-counter">
+                            <span>{quantity}</span>
+                          </div>
+                          <div className="Product-Cards-button-add ma-auto">
+                            <Button onClick={() => increaseCartQuantity(id)}>
+                              +
+                            </Button>
+                          </div>
+                        </div>
+                        <div className="Product-Cards-button-remove-all">
+                          <Button
+                            onClick={() => removeFromCart(id)}
+                            variant="danger"
+                          >
+                            <FaRegTrashCan />
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <a className="cart" href="/cart">
+                  <Button>Shop Cart</Button>
+                </a>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ import { Cart } from "./pages/Cart";
 import { Sign } from "./pages/Sign";
 import { Login } from "./pages/Login";
 
-import { ProductCards } from "./components/ProductCards";
+import { ProductPage } from "./components/ProductCards";
 import ProductsJson from "./data/Product.json";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
             {ProductsJson.result.map((item) => (
               <Route key={item.id}
                 path={item.slug}
-                element={<ProductCards {...item} />}
+                element={<ProductPage {...item} />}
               ></Route>
             ))}
           </Routes>
