@@ -24,17 +24,22 @@ export function ProductCardsList() {
 export function ProductCarousel() {
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1200 },
       items: 4,
       slidesToSlide: 1, // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1200, min: 1000 },
+      items: 3,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    LargMobile: {
+      breakpoint: { max: 1000, min: 750 },
       items: 2,
       slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 750, min: 0 },
       items: 1,
       slidesToSlide: 1, // optional, default to 1.
     },
@@ -94,7 +99,7 @@ export function ProductPaging() {
   return (
     <div className="Paging">
       <Container>
-        <Row lg={4} md={3} xs={2} className="g-3 justify-content-center">
+        <Row lg={4} md={12} sm={12} className="g-3 justify-content-center">
           {displayUsers}
         </Row>
       </Container>

@@ -168,7 +168,7 @@ export function ProductCards({
           <Modal.Body>
             <Container>
               <Row>
-                <Col>
+                <Col md={6} sm={12}>
                   <img className="mb-3" src={image} alt="pic" />
                   <div className="image-box">
                     <img src={image} alt="pic" />
@@ -176,7 +176,7 @@ export function ProductCards({
                     <img src={image} alt="pic" />
                   </div>
                 </Col>
-                <Col>
+                <Col md={6} sm={12}>
                   <h5>Description</h5>
                   <p className="description">{description}</p>
                   <p className="price">{formatCurrency(price)}</p>
