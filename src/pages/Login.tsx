@@ -50,7 +50,7 @@ export function Login() {
       data: data,
     }).catch((err) => {
       setError(err.message);
-    });
+    }).then(() => alert("your login was successful"));
   };
 
   return (

@@ -79,7 +79,8 @@ export function SignUp() {
       data: data,
     }).catch((err) => {
       setError(err.message);
-    });
+    }).then(() => alert("your sign up was successful"))
+    ;
   };
 
   return (
