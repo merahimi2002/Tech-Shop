@@ -16,9 +16,6 @@ import { ProductPage } from "./components/ProductCards";
 import ProductsJson from "./data/Product.json";
 
 function App() {
-  const RemoveDuplicateCategoryJson = [
-    ...new Set(ProductsJson.result.map((i) => i.category)),
-  ];
   return (
     <Fragment>
       <ShoppingCartProvider>
@@ -38,11 +35,11 @@ function App() {
                 element={<ProductPage {...item} />}
               ></Route>
             ))}
-            {RemoveDuplicateCategoryJson.map((item) => (
+            {ProductsJson.result.map((item) => (
               <Route
-                key={item}
-                path={item}
-                element={<CategoryProduct />}
+                key={item.category}
+                path={item.category}
+                element={<CategoryProduct {...item} />}
               ></Route>
             ))}
           </Routes>

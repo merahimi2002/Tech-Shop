@@ -10,7 +10,7 @@ import "react-multi-carousel/lib/styles.css";
 export function ProductCardsList() {
   return (
     <Container>
-      <Row lg={4} md={3} xs={2} className="g-3 justify-content-center">
+      <Row xl={4} lg={3} md={2} xs={1} className="g-3 justify-content-center">
         {ProductsJson.result.map((item) => (
           <Col key={item.id}>
             <ProductCards {...item} />
@@ -99,7 +99,7 @@ export function ProductPaging() {
   return (
     <div className="Paging">
       <Container>
-        <Row lg={4} md={12} sm={12} className="g-3 justify-content-center">
+        <Row xl={4} lg={3} md={2} xs={1} className="g-3 justify-content-center">
           {displayUsers}
         </Row>
       </Container>
