@@ -10,11 +10,15 @@ import { AboutUs } from "./pages/AboutUs";
 import { Cart } from "./pages/Cart";
 import { Sign } from "./pages/Sign";
 import { Login } from "./pages/Login";
+import { CategoryProduct } from "./pages/CategoryProduct";
 
 import { ProductPage } from "./components/ProductCards";
 import ProductsJson from "./data/Product.json";
 
 function App() {
+  const RemoveDuplicateCategoryJson = [
+    ...new Set(ProductsJson.result.map((i) => i.category)),
+  ];
   return (
     <Fragment>
       <ShoppingCartProvider>
@@ -28,9 +32,17 @@ function App() {
             <Route path="/Sign" element={<Sign />}></Route>
             <Route path="/Login" element={<Login />}></Route>
             {ProductsJson.result.map((item) => (
-              <Route key={item.id}
+              <Route
+                key={item.id}
                 path={item.slug}
                 element={<ProductPage {...item} />}
+              ></Route>
+            ))}
+            {RemoveDuplicateCategoryJson.map((item) => (
+              <Route
+                key={item}
+                path={item}
+                element={<CategoryProduct />}
               ></Route>
             ))}
           </Routes>

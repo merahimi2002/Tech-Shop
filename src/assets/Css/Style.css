@@ -110,6 +110,18 @@ ul {
   box-shadow: 0 0 0 0;
 }
 
+.Navbar .nav-item.dropdown .dropdown-toggle {
+  color: white !important;
+}
+.Navbar .nav-item.dropdown .dropdown-menu .dropdown-item .nav-link {
+  color: var(--first-color) !important;
+  margin: 5px 0;
+}
+/* .Navbar .nav-item.dropdown .dropdown-menu .dropdown-item:nth-child(even) {
+  background-color: var(--grey);
+  margin: 5px 0;
+} */
+
 /* nav-action */
 
 .Navbar .nav-action {
@@ -1110,14 +1122,14 @@ ul {
   .border-image {
     margin: 30px;
   }
-  .Navbar .nav-action button svg{
+  .Navbar .nav-action button svg {
     font-size: 25px;
   }
-  .login-image img{
+  .login-image img {
     border-radius: 15px 15px 0 0;
     margin-left: 10px;
   }
-  .Sign-up{
+  .Sign-up {
     border-radius: 0 0 15px 15px;
     margin-left: 10px;
     padding: 40px 20px;

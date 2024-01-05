@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, NavDropdown } from "react-bootstrap";
 import { Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -6,10 +6,15 @@ import { useShoppingCart } from "../context/ShoppingCardContext";
 import { CgShoppingCart } from "react-icons/cg";
 import { GiEternalLove } from "react-icons/gi";
 import { RiLoginBoxLine } from "react-icons/ri";
+import ProductsJson from "../data/Product.json";
 import "../assets/Css/Style.css";
 
 export function Navbar() {
-  const { openCart , openCartF , cartQuantity ,cartFavoriteQuantity } = useShoppingCart();
+  const { openCart, openCartF, cartQuantity, cartFavoriteQuantity } =
+    useShoppingCart();
+  const RemoveDuplicateCategoryJson = [
+    ...new Set(ProductsJson.result.map((i) => i.category)),
+  ];
   return (
     <NavbarBs expand="lg" className="Navbar" sticky="top">
       <Container>
@@ -32,6 +37,15 @@ export function Navbar() {
                 <Nav.Link to="/Store" as={NavLink}>
                   Store
                 </Nav.Link>
+                <NavDropdown title="Product">
+                  {RemoveDuplicateCategoryJson.map((item) => (
+                    <NavDropdown.Item key={item}>
+                      <Nav.Link to={item} as={NavLink}>
+                        {item}
+                      </Nav.Link>
+                    </NavDropdown.Item>
+                  ))}
+                </NavDropdown>
                 <Nav.Link to="/Cart" as={NavLink}>
                   Cart
                 </Nav.Link>
