@@ -8,21 +8,12 @@ import Carousel from "react-multi-carousel";
 import ReactPaginate from "react-paginate";
 import "react-multi-carousel/lib/styles.css";
 
-export function ProductCardsList() {
-  return (
-    <Container>
-      <Row xl={4} lg={3} md={2} xs={1} className="g-3 justify-content-center">
-        {ProductsJson.result.map((item) => (
-          <Col key={item.id}>
-            <ProductCards {...item} />
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
-}
+type ProductCategoryProps = {
+  category: string;
+};
 
 export function ProductCarousel() {
+  const ProductCarouselJson = ProductsJson.result.slice(-5);
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1200 },
@@ -65,7 +56,7 @@ export function ProductCarousel() {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          {ProductsJson.result.map((item) => (
+          {ProductCarouselJson.map((item) => (
             <Col key={item.id}>
               <ProductCards {...item} />
             </Col>
@@ -115,10 +106,6 @@ export function ProductPaging() {
     </div>
   );
 }
-
-type ProductCategoryProps = {
-  category: string;
-};
 
 export function ProductCategory({ category }: ProductCategoryProps) {
   const CategoryFilter = ProductsJson.result.filter((item) => {
