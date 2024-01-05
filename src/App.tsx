@@ -10,7 +10,7 @@ import { AboutUs } from "./pages/AboutUs";
 import { Cart } from "./pages/Cart";
 import { Sign } from "./pages/Sign";
 import { Login } from "./pages/Login";
-import { CategoryProduct } from "./pages/CategoryProduct";
+import { ProductCategory } from "./components/ProductCardsList";
 
 import { ProductPage } from "./components/ProductCards";
 import ProductsJson from "./data/Product.json";
@@ -39,7 +39,7 @@ function App() {
               <Route
                 key={item.category}
                 path={item.category}
-                element={<CategoryProduct {...item} />}
+                element={<ProductCategory {...item} />}
               ></Route>
             ))}
           </Routes>

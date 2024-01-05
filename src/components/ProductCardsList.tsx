@@ -1,6 +1,7 @@
+import { Fragment, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useState } from "react";
 import { ProductCards } from "./ProductCards";
+import { Banner } from "../components/Banner";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import ProductsJson from "../data/Product.json";
 import Carousel from "react-multi-carousel";
@@ -112,5 +113,60 @@ export function ProductPaging() {
         disabledClassName={"Disabled"}
       />
     </div>
+  );
+}
+
+type ProductCategoryProps = {
+  category: string;
+};
+
+export function ProductCategory({ category }: ProductCategoryProps) {
+  const CategoryFilter = ProductsJson.result.filter((item) => {
+    return item.category === category;
+  });
+  const users = CategoryFilter;
+  const [pageNumber, setPageNumber] = useState(0);
+  const usersPerPage = 3;
+  const pagesVisited = pageNumber * usersPerPage;
+  const displayUsers = users
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((item) => {
+      return (
+        <Col key={item.id}>
+          <ProductCards {...item} />
+        </Col>
+      );
+    });
+
+  const pageCount = Math.ceil(users.length / usersPerPage);
+
+  const changePage = ({ selected }: any) => {
+    setPageNumber(selected);
+  };
+  return (
+    <Fragment>
+      <Banner Url="../../Imgs/Sliders/StoreSlider.jpg" Message={category} />
+      <div className="Paging">
+        <Container>
+          <Row
+            xl={4}
+            lg={3}
+            md={2}
+            xs={1}
+            className="g-3 justify-content-center"
+          >
+            {displayUsers}
+          </Row>
+        </Container>
+        <ReactPaginate
+          previousLabel={<FaChevronLeft />}
+          nextLabel={<FaChevronRight />}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={"pagination-nav"}
+          disabledClassName={"Disabled"}
+        />
+      </div>
+    </Fragment>
   );
 }
