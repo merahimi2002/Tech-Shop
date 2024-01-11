@@ -242,6 +242,7 @@ export function ProductCards({
     </div>
   );
 }
+
 export function ProductPage({
   id,
   name,
