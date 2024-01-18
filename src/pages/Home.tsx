@@ -34,7 +34,7 @@ export function Home() {
       <Container className="Product-newest">
         <Row>
           <div className="Titr-bar">
-            <h2>Newest Product</h2>
+            <h2>Newest Product 2</h2>
             <div className="bar-main">
               <div className="bar bar-big"></div>
             </div>
