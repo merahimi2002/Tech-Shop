@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ProductCards } from "./ProductCards";
+import { UrlPicWithTwoFolderBack } from "../utilities/Url";
 import { Banner } from "../components/Banner";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import ProductsJson from "../data/Product.json";
@@ -132,7 +133,7 @@ export function ProductCategory({ category }: ProductCategoryProps) {
   };
   return (
     <Fragment>
-      <Banner Url="../../Imgs/Sliders/StoreSlider.jpg" Message={category} />
+      <Banner Url={UrlPicWithTwoFolderBack("Imgs/Sliders/StoreSlider.jpg")} Message={category} />
       <div className="Paging">
         <Container>
           <Row

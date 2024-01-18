@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { UrlPicWithTwoFolderBack } from "../utilities/Url";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { BsEnvelopeAtFill } from "react-icons/bs";
@@ -13,18 +14,23 @@ export function Footer() {
         <Col md={3} xs={12}>
           <div className="footer-address">
             <div className="logo-footer">
-              <img src="../../public/Imgs/Logo.png" alt="pic" />
+              <img
+                src={UrlPicWithTwoFolderBack("public/Imgs/Logo.png")}
+                alt="pic"
+              />
             </div>
             <p>
-              At <strong>Tech Shop</strong> , we're more than just a computer equipment store
-              we're your technology partners.
+              At <strong>Tech Shop</strong> , we're more than just a computer
+              equipment store we're your technology partners.
             </p>
           </div>
         </Col>
         <Col md={1} xs={12} />
         <Col md={3} xs={12}>
           <div className="footer-links">
-            <h5><strong>Useful</strong> Links</h5>
+            <h5>
+              <strong>Useful</strong> Links
+            </h5>
             <ul>
               <li>
                 <MdKeyboardDoubleArrowRight />
@@ -47,7 +53,9 @@ export function Footer() {
         </Col>
         <Col md={3} xs={12}>
           <div className="footer-contact">
-            <h5><strong> Contact </strong>info</h5>
+            <h5>
+              <strong> Contact </strong>info
+            </h5>
             <ul>
               <li>
                 <FaPhoneVolume />

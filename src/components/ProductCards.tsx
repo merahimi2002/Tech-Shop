@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Url, UrlATag } from "../utilities/Url";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { TextSummarizer } from "../utilities/TextSummarizer";
 import { useShoppingCart } from "../context/ShoppingCardContext";
@@ -10,6 +11,7 @@ import { FaSearchPlus } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { Discount, SoldOut } from "../context/ProductContext";
 import Modal from "react-bootstrap/Modal";
+
 
 type ProductCardsProps = {
   id: number;
@@ -60,7 +62,7 @@ export function ProductCards({
   // NullProductCheck
 
   if (image === null || image === "") {
-    image = "../../Imgs/Shop-card/Noimage.png";
+    image = "Imgs/Shop-card/Noimage.png";
   }
 
   //ClassName
@@ -271,7 +273,7 @@ export function ProductPage({
   // NullProductCheck
 
   if (image === null || image === "") {
-    image = "../../Imgs/Shop-card/Noimage.png";
+    image = "Imgs/Shop-card/Noimage.png";
   }
 
   //ClassName
@@ -380,7 +382,7 @@ export function ProductPage({
                     )}
                   </div>
                 </div>
-                <a className="cart" href="/cart">
+                <a className="cart" href={UrlATag("Cart")}>
                   <Button>Shop Cart</Button>
                 </a>
               </div>

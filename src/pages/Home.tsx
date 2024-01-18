@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Container, Row } from "react-bootstrap";
+import { UrlPicWithTwoFolderBack } from "../utilities/Url";
 import { AboutUsWhitoutBanner } from "./AboutUs";
 import { ProductCarousel } from "../components/ProductCardsList";
 import Carousel from "react-bootstrap/Carousel";
@@ -11,7 +12,7 @@ export function Home() {
       <Container fluid className="Slider p-0">
         <Carousel fade>
           <Carousel.Item>
-            <img src="../../Imgs/Sliders/HomePageSlider01.jpeg" alt="pic" />
+            <img src={UrlPicWithTwoFolderBack("Imgs/Sliders/HomePageSlider01.jpeg")} alt="pic" />
             <Carousel.Caption>
               <h1>
                 <strong>Tech</strong> Shop
@@ -20,7 +21,7 @@ export function Home() {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img src="../../Imgs/Sliders/HomePageSlider02.jpeg" alt="pic" />
+            <img src={UrlPicWithTwoFolderBack("Imgs/Sliders/HomePageSlider02.jpeg")} alt="pic" />
             <Carousel.Caption>
               <h1>Tech Shop</h1>
               <h5>have great time with tech shop</h5>

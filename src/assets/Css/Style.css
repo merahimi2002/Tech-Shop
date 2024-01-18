@@ -870,7 +870,7 @@ ul {
   height: 100%;
   z-index: 99;
   opacity: 1;
-  background-image: url(../../../public/Imgs/SoldOut.png);
+  background-image: url(../../../Tech-Shop/Imgs/SoldOut.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -994,7 +994,7 @@ ul {
 
 .Footer {
   margin-top: 50px;
-  background-image: url(../../../Imgs/FooterBg.jpg);
+  background-image: url(../../../Tech-Shop/Imgs/FooterBg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

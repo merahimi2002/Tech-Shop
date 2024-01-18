@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Banner } from "../components/Banner";
 import { Col, Row, Container, Button } from "react-bootstrap";
+import { UrlPicWithTwoFolderBack } from "../utilities/Url";
 import { useShoppingCart } from "../context/ShoppingCardContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { FaRegTrashCan } from "react-icons/fa6";
@@ -21,7 +22,7 @@ export function CartItemPage({ id, quantity }: CartItemPageProps) {
   // NullProductCheck
   
   if (item.image === null || item.image === "") {
-    item.image = "../../Imgs/Shop-card/Noimage.png";
+    item.image = "Imgs/Shop-card/Noimage.png";
   }
   return (
     <tr>
@@ -51,7 +52,7 @@ export function Cart() {
   const { cartItems } = useShoppingCart();
   return (
     <Fragment>
-      <Banner Url="../../Imgs/Sliders/CartSlider.jpg" Message="Cart" />
+      <Banner Url={UrlPicWithTwoFolderBack("Imgs/Sliders/CartSlider.jpg")} Message="Cart" />
       <Container className="Cart-page">
         <Row xs={1}>
           <Col>

@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { Fragment } from "react";
+import { Url } from "./utilities/Url";
 import { ShoppingCartProvider } from "./context/ShoppingCardContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
@@ -15,6 +16,7 @@ import { ProductCategory } from "./components/ProductCardsList";
 import { ProductPage } from "./components/ProductCards";
 import ProductsJson from "./data/Product.json";
 
+
 function App() {
   return (
     <Fragment>
@@ -22,23 +24,23 @@ function App() {
         <Navbar />
         <Container fluid className="p-0">
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/Store" element={<Store />}></Route>
-            <Route path="/AboutUs" element={<AboutUs />}></Route>
-            <Route path="/Cart" element={<Cart />}></Route>
-            <Route path="/Sign" element={<Sign />}></Route>
-            <Route path="/Login" element={<Login />}></Route>
+            <Route path={Url("/")} element={<Home />}></Route>
+            <Route path={Url("/Store")} element={<Store />}></Route>
+            <Route path={Url("/AboutUs")} element={<AboutUs />}></Route>
+            <Route path={Url("/Cart")} element={<Cart />}></Route>
+            <Route path={Url("/Sign")} element={<Sign />}></Route>
+            <Route path={Url("/Login")} element={<Login />}></Route>
             {ProductsJson.result.map((item) => (
               <Route
                 key={item.id}
-                path={item.slug}
+                path={Url(item.slug)}
                 element={<ProductPage {...item} />}
               ></Route>
             ))}
             {ProductsJson.result.map((item) => (
               <Route
                 key={item.category}
-                path={item.category}
+                path={Url(item.category)}
                 element={<ProductCategory {...item} />}
               ></Route>
             ))}

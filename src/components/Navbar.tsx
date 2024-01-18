@@ -1,5 +1,6 @@
 import { Container, Row, Col, NavDropdown } from "react-bootstrap";
 import { Nav, Navbar as NavbarBs } from "react-bootstrap";
+import { Url, UrlATag, UrlPicWithTwoFolderBack } from "../utilities/Url";
 import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCardContext";
@@ -21,32 +22,32 @@ export function Navbar() {
         <Row>
           <Col md={1} xs={3}>
             <div className="Logo">
-              <img src="../../public/Imgs/Logo.png" alt="pic" />
+              <img src={UrlPicWithTwoFolderBack("public/Imgs/Logo.png")} alt="pic" />
             </div>
           </Col>
           <Col md={9} xs={5}>
             <NavbarBs.Toggle aria-controls="basic-navbar-nav" />
             <NavbarBs.Collapse id="basic-navbar-nav">
               <Nav>
-                <Nav.Link to="/" as={NavLink}>
+                <Nav.Link to={Url("/")} as={NavLink}>
                   Home
                 </Nav.Link>
-                <Nav.Link to="/AboutUs" as={NavLink}>
+                <Nav.Link to={Url("/AboutUs")} as={NavLink}>
                   About Us
                 </Nav.Link>
-                <Nav.Link to="/Store" as={NavLink}>
+                <Nav.Link to={Url("/Store")} as={NavLink}>
                   Store
                 </Nav.Link>
                 <NavDropdown title="Product">
                   {RemoveDuplicateCategoryJson.map((item) => (
                     <NavDropdown.Item key={item}>
-                      <Nav.Link to={item} as={NavLink}>
+                      <Nav.Link to={Url(item)} as={NavLink}>
                         {item}
                       </Nav.Link>
                     </NavDropdown.Item>
                   ))}
                 </NavDropdown>
-                <Nav.Link to="/Cart" as={NavLink}>
+                <Nav.Link to={Url("/Cart")} as={NavLink}>
                   Cart
                 </Nav.Link>
               </Nav>
@@ -66,7 +67,7 @@ export function Navbar() {
                   {cartFavoriteQuantity}
                 </div>
               </Button>
-              <a href="/Login">
+              <a href={UrlATag("Login")}>
                 <Button className="Shop-cart-favorite">
                   <RiLoginBoxLine />
                 </Button>

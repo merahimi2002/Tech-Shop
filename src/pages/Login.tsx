@@ -1,6 +1,7 @@
 import { Banner } from "../components/Banner";
 import { Fragment } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { Url, UrlATag, UrlPicWithTwoFolderBack } from "../utilities/Url";
 import { ZodType, z } from "zod";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -9,6 +10,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoPerson } from "react-icons/io5";
 import { RiLock2Fill } from "react-icons/ri";
 import axios from "axios";
+
 
 type LoginProps = {
   UserName: string;
@@ -55,12 +57,12 @@ export function Login() {
 
   return (
     <Fragment>
-      <Banner Url="../../Imgs/Sliders/LoginBanner.jpg" Message="Login" />
+      <Banner Url={UrlPicWithTwoFolderBack("Imgs/Sliders/LoginBanner.jpg")} Message="Login" />
       <Container>
         <Row className="justify-content-center">
           <Col md={5} sm={12} className="p-0">
             <div className="login-image">
-              <img src="../../Imgs/Login.jpg" alt="pic" />
+              <img src={UrlPicWithTwoFolderBack("Imgs/Login.jpg")} alt="pic" />
             </div>
           </Col>
           <Col md={5} sm={12} className="p-0">
@@ -110,7 +112,7 @@ export function Login() {
               <button className="btn" type="submit">
                 Login
               </button>
-              <a className="account" href="/Sign">
+              <a className="account" href={UrlATag("Sign")}>
                 Don't have an account yet ? Sign Up
               </a>
             </form>

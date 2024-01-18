@@ -1,17 +1,18 @@
 import { Fragment } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { UrlPicWithTwoFolderBack } from "../utilities/Url";
 import { FaCheckCircle } from "react-icons/fa";
 import { Banner } from "../components/Banner";
 
 export function AboutUs() {
   return (
     <Fragment>
-      <Banner Url="../../Imgs/Sliders/AboutUs.jpg" Message="About Us" />
+      <Banner Url={UrlPicWithTwoFolderBack("Imgs/Sliders/AboutUs.jpg")} Message="About Us" />
       <Container className="About-us">
         <Row>
           <Col md={5} xs={12}>
             <div className="border-image">
-              <img src="../../Imgs/About-us.png" alt="pic" />
+              <img src={UrlPicWithTwoFolderBack("Imgs/About-us.png")} alt="pic" />
             </div>
           </Col>
           <Col md={1} xs={12}></Col>
@@ -66,7 +67,7 @@ export function AboutUsWhitoutBanner() {
         <Row>
           <Col md={5} xs={12}>
             <div className="border-image">
-              <img src="../../Imgs/About-us.png" alt="pic" />
+              <img src={UrlPicWithTwoFolderBack("Imgs/About-us.png")} alt="pic" />
             </div>
           </Col>
           <Col md={1} xs={12}></Col>
