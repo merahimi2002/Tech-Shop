@@ -1,16 +1,16 @@
-const DomainUrl = "Tech-Shop";
+// "/Tech-Shop/"
+const DomainUrl = import.meta.env.BASE_URL;
 
 export function Url(RelativeUrl: string) {
-  if (RelativeUrl[0] !== "/") {
-    RelativeUrl = "/" + RelativeUrl;
+  if (RelativeUrl[0] === "/") {
+    RelativeUrl =  RelativeUrl.substring(1);
   }
-  DomainUrl + RelativeUrl;
   return DomainUrl + RelativeUrl;
 }
 
 export function UrlPicWithTwoFolderBack(RelativeUrl: string) {
-  const UrlVar = "../../";
-  return UrlVar + DomainUrl + "/" + RelativeUrl;
+  const UrlVar = "../..";
+  return UrlVar + DomainUrl + RelativeUrl;
 }
 
 export function UrlATag(RelativeUrl: string) {
