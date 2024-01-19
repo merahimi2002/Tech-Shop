@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { Url, UrlPicWithTwoFolderBack } from "../utilities/Url";
+import { UrlPicWithTwoFolderBack } from "../utilities/Url";
 
 export function Page404() {
   return (
