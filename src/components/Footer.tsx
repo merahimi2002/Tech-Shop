@@ -14,10 +14,7 @@ export function Footer() {
         <Col md={3} xs={12}>
           <div className="footer-address">
             <div className="logo-footer">
-              <img
-                src={UrlPicWithTwoFolderBack("Imgs/Logo.png")}
-                alt="pic"
-              />
+              <img src={UrlPicWithTwoFolderBack("Imgs/Logo.png")} alt="pic" />
             </div>
             <p>
               At <strong>Tech Shop</strong> , we're more than just a computer
@@ -92,6 +89,41 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <div className="SM">
+            <img src={UrlPicWithTwoFolderBack("Imgs/SM/SM.jpg")} alt="pic" />
+            <div className="SM-box">
+              <ul>
+                <li>
+                  <img
+                    src={UrlPicWithTwoFolderBack("Imgs/SM/Telegram.png")}
+                    alt="pic"
+                  />
+                </li>
+                <li>
+                  <img
+                    src={UrlPicWithTwoFolderBack("Imgs/SM/Twitter.png")}
+                    alt="pic"
+                  />
+                </li>
+                <li>
+                  <img
+                    src={UrlPicWithTwoFolderBack("Imgs/SM/Whatsapp.png")}
+                    alt="pic"
+                  />
+                </li>
+                <li>
+                  <img
+                    src={UrlPicWithTwoFolderBack("Imgs/SM/Instagram.png")}
+                    alt="pic"
+                  />
+                </li>
+              </ul>
+            </div>
           </div>
         </Col>
       </Row>
