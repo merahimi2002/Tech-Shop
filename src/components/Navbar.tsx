@@ -22,7 +22,7 @@ export function Navbar() {
         <Row>
           <Col md={1} xs={3}>
             <div className="Logo">
-              <img src={UrlPicWithTwoFolderBack("Imgs/Logo.png")} alt="pic" />
+              <img src={UrlPicWithTwoFolderBack("Imgs/Logoo.png")} alt="pic" />
             </div>
           </Col>
           <Col md={9} xs={5}>

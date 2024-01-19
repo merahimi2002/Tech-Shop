@@ -15,7 +15,7 @@ export function Footer() {
           <div className="footer-address">
             <div className="logo-footer">
               <img
-                src={UrlPicWithTwoFolderBack("Imgs/Logo.png")}
+                src={UrlPicWithTwoFolderBack("Imgs/Logoo.png")}
                 alt="pic"
               />
             </div>
