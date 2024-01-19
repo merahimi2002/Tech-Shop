@@ -990,6 +990,23 @@ ul {
 
 /* End Product page */
 
+/* Start 404  */
+
+.Page404 {
+  
+}
+
+.image-mask {
+  -webkit-mask-image: url(../../../Tech-Shop/Imgs/404.png);
+  mask-image: url(../../../Tech-Shop/Imgs/404.png);
+  -webkit-mask-size: 100%;
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;    
+}
+
+/* End 404  */
+
 /* Start Footer */
 
 .Footer {

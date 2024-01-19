@@ -12,7 +12,7 @@ import { Cart } from "./pages/Cart";
 import { Sign } from "./pages/Sign";
 import { Login } from "./pages/Login";
 import { ProductCategory } from "./components/ProductCardsList";
-
+import { Page404 } from "./pages/404";
 import { ProductPage } from "./components/ProductCards";
 import ProductsJson from "./data/Product.json";
 
@@ -30,6 +30,7 @@ function App() {
             <Route path={Url("Cart")} element={<Cart />}></Route>
             <Route path={Url("Sign")} element={<Sign />}></Route>
             <Route path={Url("Login")} element={<Login />}></Route>
+            <Route path={Url("404")} element={<Page404 />}></Route>
             {ProductsJson.result.map((item) => (
               <Route
                 key={item.id}
