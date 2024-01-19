@@ -24,12 +24,12 @@ function App() {
         <Navbar />
         <Container fluid className="p-0">
           <Routes>
-            <Route path={Url("/")} element={<Home />}></Route>
-            <Route path={Url("/Store")} element={<Store />}></Route>
-            <Route path={Url("/AboutUs")} element={<AboutUs />}></Route>
-            <Route path={Url("/Cart")} element={<Cart />}></Route>
-            <Route path={Url("/Sign")} element={<Sign />}></Route>
-            <Route path={Url("/Login")} element={<Login />}></Route>
+            <Route path={Url("")} element={<Home />}></Route>
+            <Route path={Url("Store")} element={<Store />}></Route>
+            <Route path={Url("AboutUs")} element={<AboutUs />}></Route>
+            <Route path={Url("Cart")} element={<Cart />}></Route>
+            <Route path={Url("Sign")} element={<Sign />}></Route>
+            <Route path={Url("Login")} element={<Login />}></Route>
             {ProductsJson.result.map((item) => (
               <Route
                 key={item.id}
