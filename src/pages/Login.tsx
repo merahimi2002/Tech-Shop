@@ -13,17 +13,17 @@ import axios from "axios";
 
 
 type LoginProps = {
-  UserName: string;
+  username: string;
   password: string;
   Remember: boolean;
 };
 
 export function Login() {
   const Schema: ZodType<LoginProps> = z.object({
-    UserName: z
+    username: z
       .string()
-      .min(3, { message: " UserName must be at least 3 characters " })
-      .max(30, { message: " UserName must contain at most 30 characters " }),
+      .min(3, { message: " username must be at least 3 characters " })
+      .max(30, { message: " username must contain at most 30 characters " }),
     password: z
       .string()
       .min(8, { message: "Password must be at least 8 characters" })
@@ -79,9 +79,9 @@ export function Login() {
                 id="UserName"
                 className="form-control"
                 type="text"
-                {...register("UserName")}
+                {...register("username")}
               />
-              {errors.UserName && <span>{errors.UserName.message}</span>}
+              {errors.username && <span>{errors.username.message}</span>}
               
               <RiLock2Fill />
               <label htmlFor="Password" className="form-label">

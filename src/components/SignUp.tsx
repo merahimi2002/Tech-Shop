@@ -12,13 +12,13 @@ import { RiLock2Fill } from "react-icons/ri";
 import axios from "axios";
 
 type SignUpProps = {
-  Name: string;
+  full_name: string;
   UserName: string;
-  Phone: string;
+  phone_number: string;
   email: string;
   Age: string;
   password: string;
-  confirmPassword: string;
+  password2: string;
 };
 
 export function SignUp() {
@@ -26,7 +26,7 @@ export function SignUp() {
 
   const Schema: ZodType<SignUpProps> = z
     .object({
-      Name: z
+      full_name: z
         .string()
         .min(3, { message: " Name must be at least 3 characters " })
         .max(30, { message: " Name must contain at most 30 characters " }),
@@ -34,7 +34,7 @@ export function SignUp() {
         .string()
         .min(3, { message: " UserName must be at least 3 characters " })
         .max(30, { message: " UserName must contain at most 30 characters " }),
-      Phone: z
+      phone_number: z
         .string()
         .min(6, { message: " Phone number must be at least 6 digits" })
         .max(12, { message: " Phone number must contain at most 12 digits" })
@@ -47,15 +47,15 @@ export function SignUp() {
         .string()
         .min(8, { message: "Password must be at least 8 characters" })
         .max(30, { message: "Password must contain at most 30 characters" }),
-      confirmPassword: z
+      password2: z
         .string()
         .min(8, { message: "Password must be at least 8 characters" })
         .max(30, { message: "Password must contain at most 30 characters" }),
     })
 
-    .refine((data) => data.password === data.confirmPassword, {
+    .refine((data) => data.password === data.password2, {
       message: "Passwords do not match",
-      path: ["confirmPassword"],
+      path: ["password2"],
     });
 
   const {
@@ -98,9 +98,9 @@ export function SignUp() {
               id="Name"
               className="form-control"
               type="text"
-              {...register("Name")}
+              {...register("full_name")}
             />
-            {errors.Name && <span>{errors.Name.message}</span>}
+            {errors.full_name && <span>{errors.full_name.message}</span>}
 
             <FaUserFriends />
             <label htmlFor="UserName" className="form-label">
@@ -122,9 +122,9 @@ export function SignUp() {
               id="Phone"
               className="form-control"
               type="number"
-              {...register("Phone")}
+              {...register("phone_number")}
             />
-            {errors.Phone && <span>{errors.Phone.message}</span>}
+            {errors.phone_number && <span>{errors.phone_number.message}</span>}
 
             <BsFillEnvelopeAtFill />
             <label htmlFor="Email" className="form-label">
@@ -170,10 +170,10 @@ export function SignUp() {
               id="Confirm-Password"
               className="form-control"
               type="Password"
-              {...register("confirmPassword")}
+              {...register("password2")}
             />
-            {errors.confirmPassword && (
-              <span>{errors.confirmPassword.message}</span>
+            {errors.password2 && (
+              <span>{errors.password2.message}</span>
             )}
             {error && <span>{error}</span>}
             <button className="btn" type="submit">
